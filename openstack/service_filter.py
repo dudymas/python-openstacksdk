@@ -200,9 +200,11 @@ class ServiceFilter(object):
 
         If the service does not have a version, use the suggested version.
         """
-        if self.version is not None:
-            return self.version
         valid = self._get_valid_version()
+        if self.version is not None:
+            if valid.path != self.version:
+                return valid.path
+            return self.version
         if valid.path:
             return valid.path
         if version:

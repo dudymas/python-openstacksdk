@@ -18,7 +18,7 @@ class IdentityService(service_filter.ServiceFilter):
 
     valid_versions = [
         service_filter.ValidVersion('v3'),
-        service_filter.ValidVersion('v2'),
+        service_filter.ValidVersion('v2', path='v2.0'),
     ]
 
     def __init__(self, **kwargs):
